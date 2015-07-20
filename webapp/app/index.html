@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Page Title</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <style>
+  .blue{
+    color:#0000FF;
+  }
+
+  .changed{
+    background:#EFEFEF;
+    padding:10px;
+  }
+
+  input{
+    padding: 10px;
+  }
+  </style>
+</head>
+<body ng-app="">
+  <p>Name: <input type="text" ng-model="name" /></p>
+  <h1 id="namebinder" ng-bind="name"></h1>
+  <p>This is a {{name}}.</p>
+
+  <script src="/bower_components/jquery/dist/jquery.js"></script>
+  <script src="/bower_components/angular/angular.js"></script>  
+  <script type="text/javascript">
+    $("input").focus(function(){
+      $(this).addClass("changed");
+      $("h1").addClass("blue");
+    })
+    $("input").blur(function(){
+      $(this).removeClass("changed");
+      $("h1").removeClass("blue");
+      $("h1").addClass("changed");
+    })    
+  </script>  
+</body>
+</html>
